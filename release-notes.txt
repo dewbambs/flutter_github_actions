@@ -1,0 +1,2 @@
+1. firebase cli setup.
+2. firebase distribution without fastlane.
