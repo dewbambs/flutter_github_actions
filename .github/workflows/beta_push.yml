@@ -44,6 +44,11 @@ jobs:
       #   uses: ruby/setup-ruby@v1
       #   with:
       #     ruby-version: '2.7'
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v2
+
+      - name: check file exists
+        run: ls -la
 
       - name: 📦 Download APK
         uses: actions/download-artifact@master
@@ -53,7 +58,7 @@ jobs:
       - name: 🔥 Install Firebase CLI
         uses: w9jds/firebase-action@master
         with:
-          args: appdistribution:distribute app-armeabi-v7a-release.apk --app ${{ secrets.FIREBASE_APP_ID_ANDROID }} --release-notes-file release-notes.txt --testers-file testers.txt
+          args: appdistribution:distribute app-armeabi-v7a-release.apk --app ${{ secrets.FIREBASE_APP_ID_ANDROID }} --release-notes-file release-notes.txt --testers ${{ secrets.ANDROID_TESTERS }}
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
       
