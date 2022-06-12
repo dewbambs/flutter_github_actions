@@ -40,10 +40,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      # - name: 💎 Install Ruby
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: '2.7'
+      - name: 💎 Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
 
       - name: 📦 Download APK
         uses: actions/download-artifact@master
