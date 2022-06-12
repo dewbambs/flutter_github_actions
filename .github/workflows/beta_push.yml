@@ -54,7 +54,7 @@ jobs:
       - name: 🔥 Install Firebase CLI
         uses: w9jds/firebase-action@master
         with:
-          args: appdistribution:distribute beta-apk --app ${{ secrets.FIREBASE_APP_ID_ANDROID }} --release-notes-file "release-notes.txt" --testers-file "testers.txt"
+          args: appdistribution:distribute /home/runner/work/flutter_github_actions/flutter_github_actions/build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk --app ${{ secrets.FIREBASE_APP_ID_ANDROID }} --release-notes-file "release-notes.txt" --testers-file "testers.txt"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
       
