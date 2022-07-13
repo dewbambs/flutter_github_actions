@@ -22,6 +22,4 @@ jobs:
           version-path: 'version'
       
       - name: Show version
-        run: |
-          echo "Git version is: ${version}"
-          echo "Git version is: ${{ steps.version.outputs.version }}"
+        run: echo Git version is ${{ steps.version.outputs.version }}
