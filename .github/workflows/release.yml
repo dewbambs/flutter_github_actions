@@ -22,4 +22,6 @@ jobs:
           version-path: 'version'
       
       - name: Show version
-        run: echo Git version is ${{ steps.changelog.outputs.version }}
+        run: |
+          echo "version is ${{ steps.changelog.outputs.version }}"
+          echo "tag is ${{ steps.changelog.outputs.tag }}"
