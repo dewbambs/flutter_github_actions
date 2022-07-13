@@ -1,0 +1,32 @@
+name: release
+
+on:
+  push:
+    branches:
+      - "dev"
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v2
+      - name: 🍵 Install Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+      - name: 🔨 Show Build Version
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          git-message: 'chore(release): {version}'
+          version-file: './pubspec.yaml'
+          version-path: 'version'
+        run: |
+          echo "Git version is: $version"
