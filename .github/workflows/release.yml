@@ -28,5 +28,7 @@ jobs:
           git-message: 'chore(release): {version}'
           version-file: './pubspec.yaml'
           version-path: 'version'
+      
+      - name: Show version
         run: |
           echo "Git version is: $version"
