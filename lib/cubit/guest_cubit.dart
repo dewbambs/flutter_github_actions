@@ -14,8 +14,6 @@ class GuestCubit extends Cubit<GuestSearchState> {
     final index = guests
         .indexWhere((element) => element.guid == state.selectedGuest?.guid);
     if (!index.isNegative) {
-      print('index: $index');
-      // guests[index] = guest;
       finalGuests = [guest];
     }
 
