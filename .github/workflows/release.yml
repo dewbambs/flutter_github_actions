@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: 📚 Git Checkout
         uses: actions/checkout@v2
-        
+
       - name: 🔨 Show Build Version
         uses: TriPSs/conventional-changelog-action@v3
         id: version
@@ -24,4 +24,4 @@ jobs:
       - name: Show version
         run: |
           echo "Git version is: ${version}"
-          echo "Git version is: {{ steps.version.outputs.version }}"
+          echo "Git version is: ${{ steps.version.outputs.version }}"
