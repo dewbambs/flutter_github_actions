@@ -48,7 +48,7 @@ jobs:
           sleep 15
 
       - name: Check Chromedriver Listening
-        run: netstat -ano | find "4444"
+        run: netstat -ano | findstr :4444
 
       - name: 🚀 Run Integration Test
         run: |
