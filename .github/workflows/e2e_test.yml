@@ -53,6 +53,9 @@ jobs:
         run: |
           lsof -i :4444
 
+      - name: Flutter Doctor
+        run: flutter doctor -v
+
       - name: 🚀 Run Integration Test
         run: |
           flutter config --enable-web
