@@ -1,5 +1,6 @@
 name: e2e Testing
 on: [push, workflow_dispatch]
+run-name: e2e Test by @${{ github.actor }}
 jobs:
   drive:
     runs-on: windows-latest
@@ -45,6 +46,9 @@ jobs:
         run: |
           echo "Waiting for Chromedriver to start..."
           sleep 10
+
+      - name: Check Chromedriver Listening
+        run: netstat -ano | find "4444" | find "LISTEN"
 
       - name: 🚀 Run Integration Test
         run: |
