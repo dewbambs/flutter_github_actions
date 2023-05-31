@@ -3,7 +3,7 @@ on: [push, workflow_dispatch]
 run-name: e2e Test by @${{ github.actor }}
 jobs:
   drive:
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
       - name: 📚 Git Checkout
         uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
       - name: Check Browser veersion
         run: |
           echo Installed chromium version: ${{ steps.setup-chrome.outputs.chrome-version }}
-          C:\Progra~1\Google\Chrome\Application\chrome.exe --version
+          ${{ steps.setup-chrome.outputs.chrome-path }} --version
 
       - name: 🌐 Install Chromedriver
         uses: nanasess/setup-chromedriver@v2
@@ -37,7 +37,9 @@ jobs:
 
       - name: 🪛 Start Chromedriver
         run: |
+          export DISPLAY=:99
           chromedriver --url-base=/wd/hub --port=4444 &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
 
       - name: 📢 Check Chromedriver Version
         run: chromedriver -v
@@ -47,8 +49,9 @@ jobs:
           echo "Waiting for Chromedriver to start..."
           sleep 15
 
-      - name: Check Chromedriver Listening
-        run: tasklist /FI "PID eq 4444"
+      - name: 🌐 Check Chromedriver Port
+        run: |
+          lsof -i :4444
 
       - name: 🚀 Run Integration Test
         run: |
