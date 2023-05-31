@@ -22,7 +22,7 @@ jobs:
       - name: Check Browser veersion
         run: |
           echo Installed chromium version: ${{ steps.setup-chrome.outputs.chrome-version }}
-          ${{ steps.setup-chrome.outputs.chrome-path }} --version
+          C:\Progra~1\Google\Chrome\Application\chrome.exe --version
 
       - name: 🌐 Install Chromedriver
         uses: nanasess/setup-chromedriver@v2
