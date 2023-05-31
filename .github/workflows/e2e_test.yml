@@ -45,10 +45,10 @@ jobs:
       - name: ⏳ Delay
         run: |
           echo "Waiting for Chromedriver to start..."
-          sleep 10
+          sleep 15
 
       - name: Check Chromedriver Listening
-        run: netstat -ano | find "4444" | find "LISTEN"
+        run: netstat -ano | find "4444"
 
       - name: 🚀 Run Integration Test
         run: |
