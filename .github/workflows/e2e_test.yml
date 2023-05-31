@@ -38,4 +38,4 @@ jobs:
       - name: 🚀 Run Integration Test
         run: |
           flutter config --enable-web
-          flutter drive --driver=test_driver/integration_test.dart --target=e2e/login_scenario.dart -d web-server --profile --browser-name=chrome
+          flutter drive --driver=test_driver/integration_test.dart --target=e2e/home_scenario.dart -d web-server --profile --browser-name=chrome
