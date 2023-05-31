@@ -13,6 +13,17 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Install Chrome Browser
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+        id: setup-chrome
+        
+      - name: Check Browser veersion
+        run: |
+          echo Installed chromium version: ${{ steps.setup-chrome.outputs.chrome-version }}
+          ${{ steps.setup-chrome.outputs.chrome-path }} --version
+
       - name: 🌐 Install Chromedriver
         uses: nanasess/setup-chromedriver@v2
         with:
