@@ -1,0 +1,11 @@
+workflows:
+    web-workflow:
+      name: Web Integration Testing
+      instance_type: mac_mini_m1
+      max_build_duration: 120
+      scripts:
+        - name: Run integration test
+          script: | 
+            chromedriver --port=4444 &
+            flutter config --enable-web
+            flutter drive --driver=test_driver/integration_driver.dart --target=integration_test/app_test.dart -d web-server --release --browser-name chrome
