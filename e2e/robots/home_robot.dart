@@ -13,8 +13,13 @@ class HomeRobot {
     await tester.pumpUntilFound(tester, find.byType(MyHomePage));
   }
 
-  Future<void> tapFabButton() async {
+  Future<void> tapIncrementButton() async {
     await tester.tap(find.byKey(const ValueKey('increment-button')));
+    await tester.pump();
+  }
+
+  Future<void> tapDecrementButton() async {
+    await tester.tap(find.byKey(const ValueKey('decrement-button')));
     await tester.pump();
   }
 

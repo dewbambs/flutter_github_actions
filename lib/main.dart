@@ -39,6 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _decrementCounter() {
+    if (_counter > 0) {
+      setState(() {
+        _counter--;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,11 +67,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        key: const ValueKey('increment-button'),
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton(
+            key: const ValueKey('decrement-button'),
+            onPressed: _decrementCounter,
+            tooltip: 'Decrement',
+            child: const Icon(Icons.exposure_minus_1),
+          ),
+          const SizedBox(width: 20),
+          FloatingActionButton(
+            key: const ValueKey('increment-button'),
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }

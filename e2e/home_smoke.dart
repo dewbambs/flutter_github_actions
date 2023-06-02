@@ -16,8 +16,8 @@ void main(List<String> args) {
       homeRobot = HomeRobot(tester);
 
       await homeRobot.waitForHomeScreen();
-      await homeRobot.tapFabButton();
-      await homeRobot.checkVisibleCount('1');
+      await homeRobot.tapIncrementButton();
+      await homeRobot.checkVisibleCount('2');
     },
   );
 }
