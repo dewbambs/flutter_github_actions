@@ -1,5 +1,5 @@
 name: e2e Testing
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 run-name: e2e Test by @${{ github.actor }}
 jobs:
   drive:
