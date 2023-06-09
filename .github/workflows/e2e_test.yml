@@ -43,6 +43,9 @@ jobs:
 
       - name: 📢 Check Chromedriver Version
         run: chromedriver -v
+        
+      - name: Chromedriver verbose
+        run: chromedriver --verbose
 
       - name: ⏳ Delay
         run: |
